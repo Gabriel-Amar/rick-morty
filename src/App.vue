@@ -2,7 +2,10 @@
   <div id="app">
     <header-component :message="titolo"/>
     <main>
+      <transition name="fade">
       <main-grid/>
+        </transition>
+
     </main>
     
   </div>
@@ -31,7 +34,12 @@ export default {
 <style lang="scss">
 @import "@/assets/style/general.scss";
 
-
+.fade-enter-active, .fade-leave-active {
+  transition: opacity .5s;
+}
+.fade-enter, .fade-leave-to /* .fade-leave-active below version 2.1.8 */ {
+  opacity: 0;
+}
 </style>
 
 
